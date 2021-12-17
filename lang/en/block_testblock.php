@@ -15,32 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Form for editing testblock block instances.
+ * Strings for component 'block_testblock', language 'en', branch 'MOODLE_20_STABLE'
  *
  * @package   block_testblock
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class block_testblock extends block_base
-{
 
-    function init()
-    {
-        $this->title = get_string('pluginname', 'block_testblock');
-    }
-
-
-    function get_content()
-    {
-        if ($this->content !== NULL) {
-            return $this->content;
-        }
-
-        $this->content = new stdClass;
-        $this->content->text = "this is the text";
-        $this->content->footer = "this is the footer";
-
-
-        return $this->content;
-    }
-}
+$string['testblock:addinstance'] = 'Add a new testblock';
+$string['testblock:myaddinstance'] = 'Add a new testblock to Dashboard';
+$string['testblock'] = '(new testblock)';
+$string['pluginname'] = 'testblock';
