@@ -15,17 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'block_testblock', language 'en', branch 'MOODLE_20_STABLE'
+ * Settings for the testblock block
  *
- * @package   block_testblock
+ * @copyright 2012 Aaron Barnes
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   block_testblock
  */
 
+defined('MOODLE_INTERNAL') || die;
 
-$string['testblock:addinstance'] = 'Add a new testblock';
-$string['testblock:myaddinstance'] = 'Add a new testblock to Dashboard';
-$string['testblock'] = '(new testblock)';
-$string['pluginname'] = 'testblock';
-
-
-$string['showcourses'] = 'show courses';
+if ($ADMIN->fulltree) {
+    $settings->add(new admin_setting_configcheckbox('block_testblock/showcourses', get_string('showcourses', 'block_testblock'), 'show courses insted of users', 0));
+}

@@ -30,14 +30,35 @@ class block_testblock extends block_base
     }
 
 
+    function has_config()
+    {
+        return true;
+    }
+
     function get_content()
     {
         if ($this->content !== NULL) {
             return $this->content;
         }
 
+        global $DB;
+
         $this->content = new stdClass;
-        $this->content->text = "this is the text";
+        $this->content->text = '';
+
+        if (get_config('block_testblock', 'showcourses')) {
+            $courses = $DB->get_records('course');
+            foreach ($courses as $course) {
+                $this->content->text .= $course->fullname . '<br>';
+            }
+        } else {
+            $users = $DB->get_records('user');
+            foreach ($users as $user) {
+                $this->content->text .= $user->firstname . ' ' . $user->lastname . '<br>';
+            }
+        }
+
+
         $this->content->footer = "this is the footer";
 
 
